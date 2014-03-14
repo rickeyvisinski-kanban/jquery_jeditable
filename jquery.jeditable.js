@@ -171,7 +171,7 @@
                 }
                                 
                 self.editing    = true;
-                self.revert     = $(self).html();
+                self.revert     = $(self).text();
                 $(self).html('');
 
                 /* Create the form object. */
@@ -309,7 +309,7 @@
                           /* Check if given target is function */
                           if ($.isFunction(settings.target)) {
                               var str = settings.target.apply(self, [input.val(), settings]);
-                              $(self).html(str);
+                              $(self).text(str);
                               self.editing = false;
                               callback.apply(self, [self.innerHTML, settings]);
                               /* TODO: this is not dry */                              
@@ -378,7 +378,7 @@
                 if (this.editing) {
                     /* Before reset hook, if it returns false abort reseting. */
                     if (false !== onreset.apply(form, [settings, self])) { 
-                        $(self).html(self.revert);
+                        $(self).text(self.revert);
                         self.editing   = false;
                         if (!$.trim($(self).html())) {
                             $(self).html(settings.placeholder);
@@ -451,9 +451,9 @@
             },
             text: {
                 element : function(settings, original) {
-                    var input = $('<input />');
-                    if (settings.width  != 'none') { input.attr('width', settings.width);  }
-                    if (settings.height != 'none') { input.attr('height', settings.height); }
+                    var input = $('<input type="text" />');
+                    if (settings.width  != 'none') { input.width(settings.width);  }
+                    if (settings.height != 'none') { input.height(settings.height); }
                     /* https://bugzilla.mozilla.org/show_bug.cgi?id=236791 */
                     //input[0].setAttribute('autocomplete','off');
                     input.attr('autocomplete','off');
@@ -506,7 +506,7 @@
                     $('select', this).children().each(function() {
                         if ($(this).val() == json['selected'] || 
                             $(this).text() == $.trim(original.revert)) {
-                                $(this).attr('selected', 'selected');
+                                $(this).prop('selected', true);
                         }
                     });
                     /* Submit on change if no submit button defined. */
