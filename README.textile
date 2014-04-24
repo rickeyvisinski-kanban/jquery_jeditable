@@ -1,5 +1,14 @@
 h3. Changelog
 
+h4. 1.7.5
+
+* Fix HTML vs Text conversion when transitioning back and forth between
+  input and html fields
+
+h4. 1.7.4
+
+* Added a number of pull requests that had been lingering upstream
+
 h4. 1.7.3
 
 * Add support for "jQuery plugin repository":http://plugins.jquery.com/
@@ -15,7 +24,7 @@ h4. 1.7.1
 * Make default settings publicly available ("lawrencepit":http://github.com/lawrencepit)
 * Allow ajax calls other than 'html', e.g. json and script calls. ("lawrencepit":http://github.com/lawrencepit)
 * Do not follow links if they are editable ("Darwin":http://github.com/darwin)
-* make JSLInt happy ("olleolleolle":http://github.com/olleolleolle)
+* make JSLint happy ("olleolleolle":http://github.com/olleolleolle)
 
 h4. 1.7.0
 
