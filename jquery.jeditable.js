@@ -77,7 +77,10 @@
             return;
         }
 
-        var settings = $.extend({}, $.fn.editable.defaults, {target:target}, options);
+        var settings = $.extend({}, $.fn.editable.defaults);
+
+        // we need a deep clone so we dont hold child references
+        settings = $.extend(true, settings, {target:target}, options);
 
         /* setup some functions */
         var plugin   = $.editable.types[settings.type].plugin || function() { };
